@@ -12,13 +12,6 @@ import Image from 'gatsby-image';
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
       site {
         siteMetadata {
           author {
@@ -41,17 +34,13 @@ const Bio = () => {
         marginBottom: 20,
       }}
     >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author.name}
+      <div
         style={{
           marginRight: 10,
           marginBottom: 0,
           minWidth: 50,
           borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
+          background: '#ccc',
         }}
       />
       <p>
